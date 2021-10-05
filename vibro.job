@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --partition=computes_thin
+#SBATCH --ntasks=1
+#SBATCH --qos=normal
+#SBATCH --mem=40G
+#SBATCH --job-name=vibro
+#SBATCH --error=.out/vibro%j.err
+#SBATCH --output=.out/vibro%j.out
+#SBATCH --mail-user=$USER@riteh.hr
+#SBATCH --mail-type=ALL
+#SBATCH --time=5-00:00
+Rscript --save measurement_analysis.R ./mjerenja/Kratki_Spoj_1_mjerenje_napon_100/ ./mjerenja/Kratki_Spoj_2_mjerenje_napon_80/ ./mjerenja/Prazni_Hod_1_mjerenje_nazivna_indukcija/ ./mjerenja/Prazni_Hod_2_mjerenje_1.3T/ ./slike/stvarna_mjerenja/
+# example: run the job script command line:
+# sbatch  vibro.job
+
